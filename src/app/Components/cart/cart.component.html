@@ -15,16 +15,16 @@
                           <th scope="col">Price</th>
                           <th scope="col">Delivery Charges</th>
                           <th scope="col">Total</th>
-                          
+
                       </tr>
                   </thead>
                   <tbody>
-                      
+
                       <tr *ngFor="let stores of stored">
                           <td>
                               <div class="media">
                                   <div class="d-flex">
-                                      <img src="http://23.20.167.161/{{stores[0].image}}" height="150px" alt="">
+                                      <img src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{stores[0].image}}" height="150px" alt="">
                                   </div>
                                   <div class="media-body">
                                       <h5>{{stores[0].company}}&nbsp;{{stores[0].name}}&nbsp;{{stores[0].colour}}&nbsp;{{stores[0].variant}}</h5>
@@ -33,16 +33,16 @@
                           </td>
                           <td>
                               <h5>{{stores[0].price | currency: "&#8377;"}}</h5>
-                              
+
                           </td>
                           <td>
-                              
+
                                  <h5 *ngIf="stores[0].price > 499 "><del>{{500 | currency: "&#8377;" }} </del><span style="color: green">&nbsp; *Free</span></h5>
-                                  
-                              
+
+
                                 <h5 *ngIf="stores[0].price <= 499 " >{{500 | currency: "&#8377;" }}<span style="color:green">&nbsp; *only</span></h5>
-                                 
-                             
+
+
                           </td>
                           <td>
                               <h5 *ngIf="stores[0].price > 499">{{ stores[0].price | currency: "&#8377;"}}</h5>
@@ -87,9 +87,9 @@
                               <h5>{{total | currency: "&#8377;"}}</h5>
                           </td>
                       </tr>
-                      
+
                       <tr class="out_button_area">
-                          
+
                           <td class="">
 
                           </td>

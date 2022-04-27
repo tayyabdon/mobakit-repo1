@@ -10,7 +10,7 @@ import {HeaderComponent} from '../header/header.component'
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  
+
   constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
@@ -28,33 +28,33 @@ export class ProductComponent implements OnInit {
    result:any
    reviewError:any
    NoReview:any=""
-   
+
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.product_id=this.route.snapshot.params['id'];
     console.log("Product Id",this.product_id);
-    this.http.get('http://23.20.167.161/getProduct/'+this.product_id).subscribe((res)=>{
+    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getProduct/'+this.product_id).subscribe((res)=>{
       this.models=res;
       //console.log(this.models);
     })
-    this.http.get("http://23.20.167.161/getLimitData/12").subscribe((res)=>{
+    this.http.get("http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getLimitData/12").subscribe((res)=>{
       this.tops=res;
       //console.log("Tops:",this.tops);
     })
     this.loggeduser=JSON.parse(localStorage.getItem('user'))
     console.log("Logged User",this.loggeduser)
-    
+
     this.getReview()
   }
-  
+
   counter(i: number) {
     return new Array(i);
 }
   getReview(){
     console.log("get review function Chala")
-    this.http.get("http://23.20.167.161/getReview/"+this.product_id).subscribe((res)=>{
+    this.http.get("http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getReview/"+this.product_id).subscribe((res)=>{
       this.reviews=res
-      this.NoReview=this.reviews.length 
+      this.NoReview=this.reviews.length
       console.log("getReview",this.reviews)
     })
   }
@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
       this.ratings["Name"]=this.loggeduser[0].NAME
       this.ratings["Product_Id"]=this.product_id
       console.log(JSON.stringify(this.ratings))
-      this.http.post('http://23.20.167.161/setReview',JSON.stringify(this.ratings),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+      this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/setReview',JSON.stringify(this.ratings),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
         this.result=res
         console.log("Result from set Review",res)
         if(this.result.success==true){
@@ -118,7 +118,7 @@ if(JSON.parse(localStorage.getItem(a[0].CUSTOMER_ID))!=null)
     console.log("Chala")
     this.alreadyadded="Product is already added in your cart"
   }
-  
+
 }
 else{
   var LoggedUser=JSON.parse(localStorage.getItem('user'))
@@ -131,7 +131,7 @@ else{
   window.location.reload();
   //headercomponent.ngOnInit()
   }
-  
+
 }
 
 

@@ -2,7 +2,7 @@
 	<!--================ End Header Menu Area =================-->
   <app-header></app-header>
   <main class="site-main">
-    
+
     <!--================ Hero banner start =================-->
     <section class="hero-banner">
       <div class="container">
@@ -26,13 +26,13 @@
     <!--================ Hero banner start =================-->
 
     <!--================ Hero Carousel start =================-->
-   
+
      <!--Carousel Wrapper-->
 
 
     <!--================ Hero Carousel end =================-->
 
-    <!-- ================ trending product section start ================= -->  
+    <!-- ================ trending product section start ================= -->
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
@@ -43,8 +43,8 @@
           <div *ngFor="let model of models" class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product" >
               <div class="card-product__img">
-                <a [routerLink]="['/product/',model.PRODUCT_ID]"><img class="card-img" src="http://23.20.167.161/{{model.PRODUCT_IMAGE}}"  alt="iphoneX"></a>
-                
+                <a [routerLink]="['/product/',model.PRODUCT_ID]"><img class="card-img" src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{model.PRODUCT_IMAGE}}"  alt="iphoneX"></a>
+
               </div>
               <div class="card-body">
                 <p>{{model.COMPANY_NAME}}</p>
@@ -53,14 +53,14 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
-    <!-- ================ trending product section end ================= -->  
+    <!-- ================ trending product section end ================= -->
 
 
-    <!-- ================ offer section start ================= --> 
+    <!-- ================ offer section start ================= -->
     <section class="offer" id="parallax-1" data-anchor-target="#parallax-1" data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
       <div class="container">
         <div class="row">
@@ -75,9 +75,9 @@
         </div>
       </div>
     </section>
-    <!-- ================ offer section end ================= --> 
+    <!-- ================ offer section end ================= -->
 
-    <!-- ================ Best Selling item  carousel ================= --> 
+    <!-- ================ Best Selling item  carousel ================= -->
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px" style="text-align: center;">
@@ -94,7 +94,7 @@
           </ol>
           <!--/.Indicators-->
           <!--Slides-->
-          
+
           <div class="carousel-inner" role="listbox">
             <!-- First slide -->
             <div class="carousel-item active">
@@ -106,19 +106,19 @@
                 </video>
                 <div class="mask rgba-indigo-light"></div>
               </div>
-        
+
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
                   <h3 class="h3-responsive">iPhone SE</h3>
-                  
+
                 </div>
                 <h3><i class="fas fa-volume-mute" (click)="toggleMute('myVid1')"  ></i> </h3>
               </div>
               <!--Caption-->
             </div>
             <!-- /.First slide -->
-        
+
             <!-- Second slide -->
             <div class="carousel-item">
               <!--Mask color-->
@@ -129,19 +129,19 @@
                 </video>
                 <div class="mask rgba-purple-slight"></div>
               </div>
-        
+
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
                   <h3 class="h3-responsive">Samsung S20 Ultra</h3>
-                  
+
                 </div>
                 <h3><i class="fas fa-volume-mute" (click)="toggleMute('myVid2')"  ></i> </h3>
               </div>
               <!--Caption-->
             </div>
             <!-- /.Second slide -->
-        
+
             <!-- Third slide -->
             <div class="carousel-item">
               <!--Mask color-->
@@ -152,12 +152,12 @@
                 </video>
                 <div class="mask rgba-black-strong"></div>
               </div>
-        
+
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
                   <h3 class="h3-responsive">OnePlus 8/8 Pro</h3>
-                  
+
                 </div>
                 <h3><i class="fas fa-volume-mute" (click)="toggleMute('myVid3')"  ></i> </h3>
               </div>
@@ -168,28 +168,28 @@
               <!--Mask color-->
               <div class="view">
                 <!--Video source-->
-                
+
                 <video width=100% height=100% class="video-fluid" id="myVid4" [muted]="'muted'"  autoplay loop>
                   <source src="../../../assets/Redmi.mp4" id="myVideo"  type="video/mp4" />
-                  
+
                 </video>
                 <div class="mask rgba-purple-slight"></div>
               </div>
-              
+
               <!--Caption-->
               <div class="carousel-caption">
                 <div class="animated fadeInDown">
                   <h3 class="h3-responsive">Redmi Note 10 </h3>
-                  
+
                 </div>
                 <h3><i class="fas fa-volume-mute" (click)="toggleMute('myVid4')"  ></i> </h3>
               </div>
-              
+
               <!--Caption-->
             </div>
           </div>
-          
-          
+
+
           <!--/.Slides-->
           <!--Controls-->
           <a class="carousel-control-prev" href="#video-carousel-example2" role="button" data-slide="prev"  >
@@ -204,11 +204,11 @@
         </div>
       </div>
     </section>
-    <!-- ================ Best Selling item  carousel end ================= --> 
+    <!-- ================ Best Selling item  carousel end ================= -->
 
-    
 
-    <!-- ================ Subscribe section start ================= --> 
+
+    <!-- ================ Subscribe section start ================= -->
     <section class="subscribe-position">
       <div class="container">
         <div class="subscribe text-center">
@@ -227,17 +227,17 @@
 
             </form>
           </div>
-          
+
         </div>
       </div>
     </section>
-    <!-- ================ Subscribe section end ================= --> 
+    <!-- ================ Subscribe section end ================= -->
 
-    
+
 
   </main>
 
 
-  <!--================ Start footer Area  =================-->	
+  <!--================ Start footer Area  =================-->
 <app-footer></app-footer>
 	<!--================ End footer Area  =================-->

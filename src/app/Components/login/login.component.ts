@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   CustomerLogin(regForm:any){
     const data=JSON.stringify(this.model)
     console.log(data);
-    this.http.post('http://23.20.167.161/processLogin',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
-  
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/processLogin',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+
       this.result=res
       if(this.result.success){
         //console.log(this.result.data)
@@ -34,13 +34,13 @@ export class LoginComponent implements OnInit {
       //console.log("Result ",this.result)
     //console.log("Sucess",this.result.success)
     })
-    
+
   }
   constructor(private http:HttpClient,private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     window.scrollTo(0,0)
-   
+
   }
 
 }

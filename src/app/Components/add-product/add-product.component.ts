@@ -17,19 +17,19 @@ export class AddProductComponent implements OnInit {
    console.log(this.fileToUpload);
    const formData: FormData = new FormData();
    formData.append('Image', this.fileToUpload);
-   this.http.post('http://23.20.167.161/upload',formData).subscribe((res)=>{
+   this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/upload',formData).subscribe((res)=>{
       console.log(res);
     });
  }
 
-  constructor(private http:HttpClient,private router: Router) { 
+  constructor(private http:HttpClient,private router: Router) {
   }
-  durations=[{ title: "15 seconds", value: 15 }, 
-    { title: "30 seconds", value: 30 }] 
-  
+  durations=[{ title: "15 seconds", value: 15 },
+    { title: "30 seconds", value: 30 }]
+
   AddProduct(regform:any)
  {
-  
+
    /*var firstname=regform.controls.first.value;
    var secondname=regform.controls.second.value;
    var address=regform.controls.address.value;
@@ -39,22 +39,22 @@ export class AddProductComponent implements OnInit {
     //console.log(this.model);
     /*const data=JSON.stringify(this.model);
     console.log(data);
-    this.http.post('http://23.20.167.161/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       console.log(res);
     });*/
     const data=JSON.stringify(this.model);
     console.log("Data hai",data);
-   
-    this.http.post('http://23.20.167.161/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       console.log(res);
       this.router.navigate(['/adminDash']);
     });
-    
+
    }
 
   ngOnInit(): void {
     window.scrollTo(0,0)
   }
-  
+
 
 }

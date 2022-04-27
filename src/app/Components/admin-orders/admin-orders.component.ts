@@ -11,13 +11,13 @@ import {Router} from '@angular/router';
 export class AdminOrdersComponent implements OnInit {
  result:any
  rowData:any;
-  constructor(private http:HttpClient,private router:Router) { 
-   
+  constructor(private http:HttpClient,private router:Router) {
+
   }
 
   ngOnInit(): void {
     window.scrollTo(0,0)
-     this.http.post('http://23.20.167.161/getAdminOrders',JSON.stringify({'id':1}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+     this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAdminOrders',JSON.stringify({'id':1}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       this.result=res
       for(let x=0;x<this.result.length;x++){
         this.result[x].PURCHASE_DATE=new Date(this.result[x].PURCHASE_DATE).toString().split("00")[0]
@@ -39,13 +39,13 @@ export class AdminOrdersComponent implements OnInit {
     {headerName: 'Mobile', field: 'PHONE',filter:true,width:130},
     {headerName: 'Email', field: 'EMAIL', filter:true},
     {headerName: 'Address', field: 'ADDRESS',filter:true,resizable:true,width:800},
-    
+
     //{headerName: 'Phone No.', field: 'phone', sortable:true,filter:true},
     // {headerName: 'Gender', field: 'gender', sortable:true,filter:true},
     // //{headerName: 'Age', field: 'age', sortable:true,filter:true},
     // {headerName: 'Address', field: 'address', sortable:true,filter:true,resizable:true},
     // {headerName: 'City', field: 'city', sortable:true,filter:true}
   ];
-  
- 
+
+
 }

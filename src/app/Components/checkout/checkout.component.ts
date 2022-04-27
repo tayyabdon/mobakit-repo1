@@ -33,14 +33,14 @@ export class CheckoutComponent implements OnInit {
     var stored=JSON.parse(localStorage.getItem(customer_id))
     console.log("Stored",stored)
     this.model["customer_id"]=customer_id;
-    
+
     console.log(customer_id)
     //console.log(JSON.stringify(this.model));
     const data=JSON.stringify(this.model);
     console.log("Data",data);
-    this.http.post('http://23.20.167.161/updateAddress',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/updateAddress',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       //console.log("Response",res);
-      
+
     });
     this.order["customer_id"]=customer_id
     this.order["customer_name"]=loggeduser[0].NAME
@@ -56,20 +56,20 @@ export class CheckoutComponent implements OnInit {
 
     var orderdata=JSON.stringify(this.order)
     console.log(orderdata)
-    this.http.post('http://23.20.167.161/setOrders',orderdata,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/setOrders',orderdata,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       this.response=res
-     
+
       this.router.navigate(['/confirmation',{time:this.response.purchase_time}])
-      
+
     })
-   
+
   }
   ngOnInit(): void {
     window.scrollTo(0,0)
     var loggeduser=JSON.parse(localStorage.getItem('user'))
     var customer_id=loggeduser[0].CUSTOMER_ID;
-    this.http.get('http://23.20.167.161/getAddress/'+customer_id).subscribe((res)=>{
-      
+    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAddress/'+customer_id).subscribe((res)=>{
+
       this.address_data=res
       console.log("Response init",this.address_data)
       if(this.address_data.success==true){
@@ -85,7 +85,7 @@ export class CheckoutComponent implements OnInit {
       else{
         console.log(res)
       }
-      
+
     })
     var user=JSON.parse(localStorage.getItem('user'))
     var key=user[0].CUSTOMER_ID;
@@ -99,8 +99,8 @@ export class CheckoutComponent implements OnInit {
       }
       else this.total=this.total+this.stored[i][0].price+500
       }
-  
-    
+
+
   }
 
 }

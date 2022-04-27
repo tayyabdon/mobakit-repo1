@@ -2,12 +2,12 @@
 <app-header></app-header>
 <!-- ================ Header area end ================= -->
 
-<!-- ================ category section start ================= -->		  
+<!-- ================ category section start ================= -->
 <section class="section-margin--small mb-5">
     <div class="container">
       <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
-          
+
           <div class="sidebar-filter">
             <div class="top-filter-head">Product Filters</div>
             <div class="common-filter">
@@ -15,14 +15,14 @@
               <form  class="form" action="#">
                 <ul>
                 <div *ngFor="let company of companies" class="form-group">
-                  
-                
+
+
                   <li class="filter-list"> <input type="radio" class="pixel-radio" name="brand"  (click)="CompanyFilter($event,company)"> {{company.company_name}} ({{company.count}})</li>
-                 
-                      
-                      
+
+
+
                 </div>
-              </ul>   
+              </ul>
               </form>
             </div>
             <div class="common-filter">
@@ -58,13 +58,13 @@
         <div class="col-xl-9 col-lg-8 col-md-7">
           <!-- Start Filter Bar -->
           <div class="filter-bar d-flex flex-wrap align-items-center">
-            
+
             <div class="sorting mr-auto">
               <button type="button" class="btn btn-block btn-outline-info btn-light" (click)="ngOnInit()">Show All Products</button>
             </div>
-            
-              
-            
+
+
+
             <div>
               <div class="input-group filter-bar-search">
                 <input type="text" style="width:500px; border-color: aqua;"placeholder="Search Your Product Here..." [(ngModel)]="search">
@@ -81,8 +81,8 @@
               <div *ngFor="let shop of shopper | filter:search | paginate:{itemsPerPage:6,currentPage:p};" class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
-                    <a [routerLink]="['/product/',shop.PRODUCT_ID]"><img class="card-img" src="http://23.20.167.161/{{shop.PRODUCT_IMAGE}}" alt=""></a>
-                   
+                    <a [routerLink]="['/product/',shop.PRODUCT_ID]"><img class="card-img" src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{shop.PRODUCT_IMAGE}}" alt=""></a>
+
                   </div>
                   <div class="card-body">
                     <p>{{shop.COMPANY_NAME}}</p>
@@ -91,7 +91,7 @@
                   </div>
                 </div>
               </div>
-             
+
             </div>
             <pagination-controls (pageChange)="p=$event"></pagination-controls>
           </section>
@@ -100,11 +100,11 @@
       </div>
     </div>
   </section>
-	<!-- ================ category section end ================= -->		  
+	<!-- ================ category section end ================= -->
 
-	<!-- ================ top product area start ================= -->	
+	<!-- ================ top product area start ================= -->
 
-	<!-- ================ top product area end ================= -->		
+	<!-- ================ top product area end ================= -->
 
     <!-- ================ Footer area start ================= -->
 <app-footer></app-footer>

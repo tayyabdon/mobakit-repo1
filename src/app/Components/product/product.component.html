@@ -2,9 +2,9 @@
 
 	<app-header></app-header>
 	<!--================ End Header Menu Area =================-->
-	
-	<!-- ================ start banner area ================= -->	
-	
+
+	<!-- ================ start banner area ================= -->
+
 	<!-- ================ end banner area ================= -->
 
 
@@ -13,10 +13,10 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="img-fluid" src="http://23.20.167.161/{{models[0].PRODUCT_IMAGE}}" alt="">
+					<img class="img-fluid" src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{models[0].PRODUCT_IMAGE}}" alt="">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
-							
+
 						</div>
 						<!-- <div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -37,24 +37,24 @@
 							<li>
 								<div class="btn-group btn-group-toggle " >
 								  <label class="btn btn-default text-center" >
-									
+
 									<i class="fas fa-circle fa-2x text-green "></i>
-									
+
 								  </label>
 								  <label class="btn btn-default text-center">
-									
+
 									<i class="fas fa-circle fa-2x text-blue"></i>
 								  </label>
 								  <label class="btn btn-default text-center">
-									
+
 									<i class="fas fa-circle fa-2x text-purple"></i>
 								  </label>
 								  <label class="btn btn-default text-center">
-									
+
 									<i class="fas fa-circle fa-2x text-red"></i>
 								  </label>
 								  <label class="btn btn-default text-center">
-									
+
 									<i class="fas fa-circle fa-2x text-orange"></i>
 								  </label>
 								</div>
@@ -62,30 +62,30 @@
 							<li>
 								<h4>Delivery: </h4>
 								<div class="input-group mb-3">
-									
+
 									<div class="input-group-prepend">
-										
+
 									  <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
 									</div>
 									<input type="text" class="form-control form-inline col-6" placeholder="Enter Pincode ..." maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'');">&nbsp; <span> <button type="button" class="btn btn-block btn-danger btn-sm" (click)="Delivery($event)">Check</button></span>
-									
-									  
+
+
 								</div>
 							</li>
 							<li><span>{{delivery}}</span>	</li>
 						</ul><br/>
 						<ul class="list">
-							<li><img src="http://23.20.167.161/{{models[0].COMPANY_NAME}}.png"> :  <span><b>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</b></span></li>
-							
+							<li><img src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{models[0].COMPANY_NAME}}.png"> :  <span><b>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</b></span></li>
+
 						</ul><br/>
 
-						
-              
+
+
 							<button class="button primary-btn" (click)="AddtoCart($event)">Add to Cart</button>
 							<span style="color: red;">&nbsp; &nbsp; {{alreadyadded}}</span>
-						
+
 						<div class="card_area d-flex align-items-center">
-							
+
 						</div>
 					</div>
 				</div>
@@ -105,7 +105,7 @@
 					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 					 aria-selected="false">Specification</a>
 				</li>
-				
+
 				<li class="nav-item">
 					<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
 					 aria-selected="false">Reviews</a>
@@ -201,13 +201,13 @@
 						</table>
 					</div>
 				</div>
-				
+
 				<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
 					<div class="row">
 						<div class="col-lg-6">
 							<h4>Customer Reviews</h4>
 							<h5 style="color:brown" *ngIf="NoReview==0">Be The First One to Add a Review &rArr;</h5>
-							
+
 							<div class="review_list">
 								<div class="review_item" *ngFor="let review of reviews">
 									<div class="media">
@@ -216,16 +216,16 @@
 										</div>
 										<div class="media-body">
 											<h4>{{review.CUSTOMER_NAME}}</h4>
-											
+
 											<i class="fa fa-star" *ngFor='let in of counter(review.RATING) ;let i = index' ></i>
-											
-											
+
+
 										</div>
 									</div>
 									<p>{{review.REVIEW}}</p>
 								</div>
-								
-								
+
+
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -236,7 +236,7 @@
 								<ul class="list" >
 									<p>Your Rating:</p><br/>
 									<div class="rating">
-										
+
 										<input id="star5" name="star" type="radio" value="5" class="radio-btn hide" [(ngModel)]="ratings.star" />
 										<label for="star5" ><i class="far fa-star"></i></label>
 										<input id="star4" name="star" [(ngModel)]="ratings.star" type="radio" value="4" class="radio-btn hide" />
@@ -250,19 +250,19 @@
 										<div class="clear"></div>
 									</div>
 								</ul>
-								
-								
-                
-                  
+
+
+
+
                   <div class="form-group">
                     <textarea class="form-control different-control w-100" name="review" id="review" cols="30" rows="5" placeholder="Enter Your Review" [(ngModel)]="ratings.review"></textarea>
 				  </div>
 				  <span style="color: red;">{{reviewError}}</span>
                   <div class="form-group text-center text-md-right mt-3">
 					<button type="button" (click)="SendReview(); reviewForm.reset()" class="button button--active button-review">Submit Now</button>
-					
+
 				  </div>
-				  
+
                 </form>
 							</div>
 						</div>
@@ -273,11 +273,11 @@
 	</section>
 	<!--================End Product Description Area =================-->
 
-	<!--================ Start related Product area =================-->  
+	<!--================ Start related Product area =================-->
 	<section class="related-product-area section-margin--small mt-0">
 		<div class="container">
 			<div class="section-intro pb-60px">
-        
+
         <h2> <span class="section-intro__style"> Trending Products</span></h2>
       </div>
 			<div class="row mt-30">
@@ -288,27 +288,26 @@
 				</div>
 			  </div>
           <div class="single-search-product-wrapper">
-			
+
             <div class="single-search-product d-flex">
-				
-              <a [routerLink]="['/product/',top.PRODUCT_ID]"><img src="http://23.20.167.161/{{top.PRODUCT_IMAGE}}" alt=""></a>
+
+              <a [routerLink]="['/product/',top.PRODUCT_ID]"><img src="http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/{{top.PRODUCT_IMAGE}}" alt=""></a>
               <div class="desc">
                   <a [routerLink]="['/product/',top.PRODUCT_ID]"  class="title">{{top.PRODUCT_NAME}}</a>
                   <div class="price">{{top.PRICE | currency: "&#8377; "}}</div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
 		</div>
 	</section>
-	<!--================ end related Product area =================-->  	
+	<!--================ end related Product area =================-->
 
-  <!--================ Start footer Area  =================-->	
+  <!--================ Start footer Area  =================-->
 	<app-footer></app-footer>
 	<!--================ End footer Area  =================-->
 
 
 
- 

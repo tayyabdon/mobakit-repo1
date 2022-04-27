@@ -23,17 +23,17 @@ export class RegisterComponent implements OnInit {
   }
   else{
     const data=JSON.stringify(this.model)
-    this.http.post('http://23.20.167.161/processRegister',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/processRegister',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       //console.log("Response",res);
       this.result=res
       if(this.result.success==false) this.passwordalert="Your Account Already Exists, Please Login!"
       else this.router.navigate(['/login'])
     })
-    
-    //console.log(data) 
+
+    //console.log(data)
   }
-    
-    
+
+
   }
   constructor(private http:HttpClient,private router: Router) { }
 

@@ -14,22 +14,22 @@ export class HomeComponent implements OnInit {
     window.scrollTo(0, 0);
    }
   toggleMute(myVideo){
-    
+
     let video = <HTMLVideoElement> document.getElementById(myVideo);
-    
+
     video.muted = !video.muted;
   }
- 
+
   ngOnInit(): void {
     window.scrollTo(0,0)
-    this.http.get('http://23.20.167.161/getLimitData/8').subscribe((res)=>{
+    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getLimitData/8').subscribe((res)=>{
       //console.log(res);
       this.models=res;
       console.log(this.models)
       console.log(JSON.parse(localStorage.getItem('user')))
       console.log(JSON.parse(localStorage.getItem('101')))
     });
-    
+
   }
 
 }

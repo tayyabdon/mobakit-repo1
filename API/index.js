@@ -24,6 +24,64 @@ const upload = multer({ storage: storage })
 app.use(cors());
 app.use(express.static('uploads'));
 
+var origin = '*';
+
+// CORS middleware
+const allowCrossDomain = function(req, res, next) {
+  var allowedOrigins = [
+      '54.208.35.38'
+  ];
+  origin = req.headers.origin;
+
+  if (allowedOrigins.indexOf(origin) > -1) {
+    origin = req.headers.origin;
+  } else {
+    origin = '*';
+  }
+
+  console.log('******************************************');
+  console.log('******************************************');
+  console.log('*********** Cors Request logs ************');
+  console.log('******************************************');
+  console.log('******************************************');
+
+  console.log(origin);
+
+  res.header('Access-Control-Allow-Origin', origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Access-Control-Allow-Headers');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+};
+app.use(allowCrossDomain);
+app.use((req, res, next) => {
+
+  if (req.method === 'OPTIONS') {
+  console.log('!OPTIONS');
+  console.log('******************************************');
+  console.log('******************************************');
+  console.log('*********** Cors Request logs 1************');
+  console.log('******************************************');
+  console.log('******************************************');
+  console.log(origin);
+  console.log(req.headers.origin);
+  var headers = {};
+  // IE8 does not allow domains to be specified, just the *
+  // headers["Access-Control-Allow-Origin"] = req.headers.origin;
+  headers['Access-Control-Allow-Origin'] = origin;
+  // headers["Access-Control-Allow-Origin"] = "*";
+  headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE';
+  headers['Access-Control-Allow-Credentials'] = true;
+  headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Requested-With, Access-Control-Allow-Headers';
+  headers['Cache-Control'] = 'private, no-cache, no-store, must-revalidate';
+  res.writeHead(200, headers);
+  res.end();
+} else {
+  return next();
+}
+});
+
 app.get('/getProduct/:ProductId', (req, res) => {
     console.log(req.params.ProductId)
     sqlquery = "SELECT COMPANY.COMPANY_NAME,PRODUCT.PRODUCT_ID,PRODUCT.PRODUCT_NAME,PRODUCT.PRODUCT_IMAGE,PRODUCT.PRICE,PRODUCT.COLOUR,PRODUCT.VARIANT,PRODUCT.DISPLAY,PRODUCT.PROCESSOR,PRODUCT.CAMERA,PRODUCT.AVAILABLE, PRODUCT.OS FROM PRODUCT INNER JOIN COMPANY ON COMPANY.COMPANY_ID=PRODUCT.COMPANY_ID WHERE PRODUCT_ID=" + req.params.ProductId;

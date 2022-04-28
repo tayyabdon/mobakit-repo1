@@ -207,7 +207,7 @@ app.post('/processRegister', (req, res) => {
 })
 app.post('/processLogin', (req, res) => {
     console.log(req.body)
-    sqlquery = "Select CUSTOMER_ID,NAME,EMAIL,PHONE,ADDRESS,PINCODE,LOCALITY,CITY,STATE,ADDRESS_TYPE from customer where email='" + req.body.email + "' and password='" + req.body.password + "' "
+    sqlquery = "Select CUSTOMER_ID,NAME,EMAIL,PHONE,ADDRESS,PINCODE,LOCALITY,CITY,STATE,ADDRESS_TYPE from CUSTOMER where email='" + req.body.email + "' and password='" + req.body.password + "' "
     connection.query(sqlquery, (err, result) => {
         console.log(sqlquery)
         if (err) console.log(err)

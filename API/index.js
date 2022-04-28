@@ -210,7 +210,8 @@ app.post('/processLogin', (req, res) => {
     sqlquery = "Select CUSTOMER_ID,NAME,EMAIL,PHONE,ADDRESS,PINCODE,LOCALITY,CITY,STATE,ADDRESS_TYPE from customer where email='" + req.body.email + "' and password='" + req.body.password + "' "
     connection.query(sqlquery, (err, result) => {
         console.log(sqlquery)
-        if (err) console.log(error)
+        if (err) console.log(err)
+
         if (result.length > 0) res.send({ success: true, data: result })
         else res.send(
             { success: false }

@@ -17,19 +17,19 @@ export class ShopComponent implements OnInit {
    }
    CompanyFilter($event,company){
      console.log(company.company_id)
-     this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/CompanyFilter/'+company.company_id).subscribe((res)=>{
+     this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/CompanyFilter/'+company.company_id).subscribe((res)=>{
        this.shopper=res;
        console.log(this.shopper);
      })
    }
   ngOnInit(): void {
     window.scrollTo(0,0)
-    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getLimitData/100').subscribe((res)=>{
+    this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getLimitData/100').subscribe((res)=>{
       this.shopper=res;
       //console.log("Shopper",this.shopper)
     })
 
-    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getCategory').subscribe((res)=>{
+    this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getCategory').subscribe((res)=>{
       this.companies=res;
       //console.log("Companies",this.companies)
     })

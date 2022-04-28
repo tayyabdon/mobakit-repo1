@@ -18,7 +18,7 @@ export class AdminOrderDashComponent implements OnInit {
     Delete(id){
       console.log(id)
 
-      this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/deleteProduct/'+id).subscribe((res)=>{
+      this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/deleteProduct/'+id).subscribe((res)=>{
         this.response=res
         if(this.response.success==true){
           this.ngOnInit()
@@ -27,7 +27,7 @@ export class AdminOrderDashComponent implements OnInit {
     }
   ngOnInit(): void {
     window.scrollTo(0,0)
-    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAllProduct').subscribe((res)=>{
+    this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getAllProduct').subscribe((res)=>{
 
       this.models=res
       console.log(this.models)

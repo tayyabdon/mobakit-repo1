@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit {
     //console.log(JSON.stringify(this.model));
     const data=JSON.stringify(this.model);
     console.log("Data",data);
-    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/updateAddress',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/updateAddress',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       //console.log("Response",res);
 
     });
@@ -56,7 +56,7 @@ export class CheckoutComponent implements OnInit {
 
     var orderdata=JSON.stringify(this.order)
     console.log(orderdata)
-    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/setOrders',orderdata,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/setOrders',orderdata,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       this.response=res
 
       this.router.navigate(['/confirmation',{time:this.response.purchase_time}])
@@ -68,7 +68,7 @@ export class CheckoutComponent implements OnInit {
     window.scrollTo(0,0)
     var loggeduser=JSON.parse(localStorage.getItem('user'))
     var customer_id=loggeduser[0].CUSTOMER_ID;
-    this.http.get('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAddress/'+customer_id).subscribe((res)=>{
+    this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getAddress/'+customer_id).subscribe((res)=>{
 
       this.address_data=res
       console.log("Response init",this.address_data)

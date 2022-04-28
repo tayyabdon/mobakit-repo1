@@ -17,7 +17,7 @@ export class AdminOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0,0)
-     this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAdminOrders',JSON.stringify({'id':1}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+     this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getAdminOrders',JSON.stringify({'id':1}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       this.result=res
       for(let x=0;x<this.result.length;x++){
         this.result[x].PURCHASE_DATE=new Date(this.result[x].PURCHASE_DATE).toString().split("00")[0]

@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
     console.log(this.loggeduser)
     this.customer_id=this.loggeduser[0].CUSTOMER_ID
     console.log(this.customer_id)
-    this.http.post('http://test-load-balancer-911870064.us-east-1.elb.amazonaws.com/getAdminOrders',JSON.stringify({'id':this.customer_id}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getAdminOrders',JSON.stringify({'id':this.customer_id}),{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       console.log("res",res)
       this.stored=res
       console.log(this.stored)

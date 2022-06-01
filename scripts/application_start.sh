@@ -4,7 +4,7 @@
 sudo chmod -R 777 /home/ubuntu/mobakit-repo123
 
 #navigate into our working directory where we have all our github files
-cd /home/ubuntu/mobakit-repo123
+cd /home/ubuntu/mobakit-repo123/API
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	
@@ -15,4 +15,4 @@ export NVM_DIR="$HOME/.nvm"
 npm install
 
 #start our node app in the background
-node app.js > app.out.log 2> app.err.log < /dev/null & 
+node index.js > app.out.log 2> app.err.log < /dev/null & 

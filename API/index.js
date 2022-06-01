@@ -82,6 +82,14 @@ app.use((req, res, next) => {
 }
 });
 
+app.get('/', (req, res) => {
+    res.send({
+        success: 1,
+        message: 'Server is running',
+        data: {}
+    });
+})
+
 app.get('/getProduct/:ProductId', (req, res) => {
     console.log(req.params.ProductId)
     sqlquery = "SELECT COMPANY.COMPANY_NAME,PRODUCT.PRODUCT_ID,PRODUCT.PRODUCT_NAME,PRODUCT.PRODUCT_IMAGE,PRODUCT.PRICE,PRODUCT.COLOUR,PRODUCT.VARIANT,PRODUCT.DISPLAY,PRODUCT.PROCESSOR,PRODUCT.CAMERA,PRODUCT.AVAILABLE, PRODUCT.OS FROM PRODUCT INNER JOIN COMPANY ON COMPANY.COMPANY_ID=PRODUCT.COMPANY_ID WHERE PRODUCT_ID=" + req.params.ProductId;

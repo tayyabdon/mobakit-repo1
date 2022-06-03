@@ -18,6 +18,6 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules 
 npm install
 
-#start our node app in the background
+#start our node app in the background 
 node index.js > app.out.log 2> app.err.log < /dev/null
 # node index.js  

@@ -6,7 +6,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 nvm install 10.15.3
 
 #create our working directory if it doesnt exist
-DIR="/home/ec2-user/mobakit-repo123"
+DIR="/home/ec2-user/mobakit-repo123/API"
 if [ -d "$DIR" ]; then
   echo "${DIR} exists"
 else

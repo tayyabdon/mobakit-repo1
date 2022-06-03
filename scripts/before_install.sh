@@ -6,7 +6,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 nvm install node
 
 #create our working directory if it doesnt exist
-DIR="/home/ec2-user/mobakit-repo123/API"
+DIR="/home/ec2-user/mobakit-repo123"
 if [ -d "$DIR" ]; then
   echo "${DIR} exists"
 else
@@ -14,4 +14,4 @@ else
   mkdir ${DIR}
 fi
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
+# [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM

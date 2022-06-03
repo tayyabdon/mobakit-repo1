@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/mobakit-repo123/API
+    destination: /home/ec2-user/mobakit-repo123/API
 hooks:
   ApplicationStop:
     - location: scripts/application_stop.sh

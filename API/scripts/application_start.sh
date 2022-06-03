@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ubuntu/mobakit-repo123
+sudo chmod -R 777 /home/ec2-user/mobakit-repo123
 
 #navigate into our working directory where we have all our github files
-cd /home/ubuntu/mobakit-repo123/API
+cd /home/ec2-user/mobakit-repo123/API
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	

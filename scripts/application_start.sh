@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/ec2-user/.bash_profile
+# source /home/ec2-user/.bash_profile
 
 #give permission for everything in the express-app directory
 sudo chmod -R 777 /home/ec2-user/mobakit-repo123
@@ -19,5 +19,5 @@ export NVM_DIR="$HOME/.nvm"
 npm install 
 
 #start our node app in the background 
-node index.js > app.out.log 2> app.err.log < /dev/null
+node index.js > app.out.log 2> app.err.log < /dev/null &
 # node index.js  

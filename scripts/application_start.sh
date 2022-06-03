@@ -15,8 +15,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads
 
 #install node  modules  
-echo hich node
+echo which node
 echo which npm
+which node
 npm install 
 
 npm install pm2 -g

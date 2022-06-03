@@ -10,15 +10,14 @@ cd /home/ec2-user/mobakit-repo123/API
 
 # sudo apt-get install npm
 
+#!/bin/bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads
-
-#install node  modules  
-echo which node
-echo which npm
-which node
-npm install 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export HOME="/home/ec2-user/"
+sudo PM2_HOME=/home/ubuntu/.pm2 pm2 list
+cd /home/ec2-user/mobakit-repo123
+npm install
 
 npm install pm2 -g
  

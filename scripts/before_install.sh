@@ -13,3 +13,5 @@ else
   echo "Creating ${DIR} directory"
   mkdir ${DIR}
 fi
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM

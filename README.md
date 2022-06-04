@@ -13,6 +13,7 @@ It is an E-Commerce Website which aims to sell the mobile phones and have almost
 
 **1. Customer**
 
+
      1.1 Home/ Dashboard 
      1.2 Shop 
      1.3 Cart 

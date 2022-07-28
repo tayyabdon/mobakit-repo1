@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -10,50 +10,49 @@ import {Router} from '@angular/router';
 
 
 export class AddProductComponent implements OnInit {
- model:any={}
- fileToUpload: File = null;
- handleFileInput(files:FileList){
-   this.fileToUpload=files.item(0);
-   console.log(this.fileToUpload);
-   const formData: FormData = new FormData();
-   formData.append('Image', this.fileToUpload);
-   this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/upload',formData).subscribe((res)=>{
+  model: any = {}
+  fileToUpload: File = null;
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    console.log(this.fileToUpload);
+    const formData: FormData = new FormData();
+    formData.append('Image', this.fileToUpload);
+    this.http.post('http://mobikart-alb-1432438635.us-east-1.elb.amazonaws.com', formData).subscribe((res) => {
       console.log(res);
     });
- }
-
-  constructor(private http:HttpClient,private router: Router) {
   }
-  durations=[{ title: "15 seconds", value: 15 },
-    { title: "30 seconds", value: 30 }]
 
-  AddProduct(regform:any)
- {
+  constructor(private http: HttpClient, private router: Router) {
+  }
+  durations = [{ title: "15 seconds", value: 15 },
+  { title: "30 seconds", value: 30 }]
 
-   /*var firstname=regform.controls.first.value;
-   var secondname=regform.controls.second.value;
-   var address=regform.controls.address.value;
-   var city=regform.controls.city.value;
-   var gender=regform.controls.gender.value;
-   alert(firstname+" "+secondname+" "+gender+" "+address+" "+city);*/
+  AddProduct(regform: any) {
+
+    /*var firstname=regform.controls.first.value;
+    var secondname=regform.controls.second.value;
+    var address=regform.controls.address.value;
+    var city=regform.controls.city.value;
+    var gender=regform.controls.gender.value;
+    alert(firstname+" "+secondname+" "+gender+" "+address+" "+city);*/
     //console.log(this.model);
     /*const data=JSON.stringify(this.model);
     console.log(data);
-    this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://mobikart-alb-1432438635.us-east-1.elb.amazonaws.com/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
       console.log(res);
     });*/
-    const data=JSON.stringify(this.model);
-    console.log("Data hai",data);
+    const data = JSON.stringify(this.model);
+    console.log("Data hai", data);
 
-    this.http.post('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/process',data,{headers: new HttpHeaders({'Content-Type': 'application/json'})}).subscribe((res)=>{
+    this.http.post('http://mobikart-alb-1432438635.us-east-1.elb.amazonaws.com/process', data, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).subscribe((res) => {
       console.log(res);
       this.router.navigate(['/adminDash']);
     });
 
-   }
+  }
 
   ngOnInit(): void {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
 

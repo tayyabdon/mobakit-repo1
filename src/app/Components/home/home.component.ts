@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-home',
@@ -8,23 +8,23 @@ import * as $ from 'jquery';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  models:any=[]
+  models: any = []
 
-  constructor(private router:Router,private http:HttpClient) {
+  constructor(private router: Router, private http: HttpClient) {
     window.scrollTo(0, 0);
-   }
-  toggleMute(myVideo){
+  }
+  toggleMute(myVideo) {
 
-    let video = <HTMLVideoElement> document.getElementById(myVideo);
+    let video = <HTMLVideoElement>document.getElementById(myVideo);
 
     video.muted = !video.muted;
   }
 
   ngOnInit(): void {
-    window.scrollTo(0,0)
-    this.http.get('http://test-load-balancer-1828335635.us-east-1.elb.amazonaws.com/getLimitData/8').subscribe((res)=>{
+    window.scrollTo(0, 0)
+    this.http.get('http://mobikart-alb-1432438635.us-east-1.elb.amazonaws.com/getLimitData/8').subscribe((res) => {
       //console.log(res);
-      this.models=res;
+      this.models = res;
       console.log(this.models)
       console.log(JSON.parse(localStorage.getItem('user')))
       console.log(JSON.parse(localStorage.getItem('101')))
